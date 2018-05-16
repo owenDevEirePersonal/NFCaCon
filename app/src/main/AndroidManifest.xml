@@ -33,6 +33,7 @@
             <meta-data
                 android:name="android.nfc.action.TECH_DISCOVERED"
                 android:resource="@xml/nfc_tech_filter"/>
+            <!--  nfc_tech_filter is stored in res.xml folder -->
         </activity>
     </application>
 

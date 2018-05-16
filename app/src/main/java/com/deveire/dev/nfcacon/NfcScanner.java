@@ -13,9 +13,9 @@ import android.widget.Toast;
  * Created by owenryan on 15/05/2018.
  */
 
-public class NFCScanner
+public class NfcScanner
 {
-    public static NfcAdapter setupNFCScanner(final Activity activity)
+    public static NfcAdapter setupNfcScanner(final Activity activity)
     {
         NfcAdapter nfcAdapter = NfcAdapter.getDefaultAdapter(activity);
         if(nfcAdapter == null)
@@ -31,7 +31,7 @@ public class NFCScanner
                 return nfcAdapter;
             }
         }
-        Log.e("NFCTEST", "setupNFCScanner: NFC adapter not setup, returning null");
+        Log.e("NFCTEST", "setupNfcScanner: NFC adapter not setup, returning null");
         return null;
     }
 
