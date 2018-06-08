@@ -1,14 +1,22 @@
 package com.deveire.dev.nfcacon;
 
 import android.content.Intent;
+import android.nfc.NdefMessage;
+import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
+import android.nfc.Tag;
+import android.nfc.tech.Ndef;
+import android.nfc.tech.NdefFormatable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.webkit.WebView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.deveire.dev.nfcacon.NfcScanner;
+
+import java.io.IOException;
 
 public class Main2Activity extends AppCompatActivity
 {
@@ -71,7 +79,12 @@ public class Main2Activity extends AppCompatActivity
          */
         Log.i("NFCTEST", "onNewIntent: " + intent.toString());
         debug.setText(NfcScanner.getTagIDFromIntent(intent));
+        String id = "Room101";
+        NdefRecord rec = NdefRecord.createUri("https://www.google.ie/search?q=roomid=" + id);
+        NdefMessage msg = new NdefMessage(new NdefRecord[]{rec});
+        NfcScanner.writeTag(NfcScanner.getTagObjectFromIntent(intent), msg);
     }
+
 
 
 }
